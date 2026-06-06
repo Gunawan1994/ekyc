@@ -1,3 +1,8 @@
+# Video
+## Demo Video
+
+[![Demo Video](https://drive.google.com/thumbnail?id=14XlBNi9p6CVabD9rs201JTojefhKv61n&sz=w1000)](https://drive.google.com/file/d/14XlBNi9p6CVabD9rs201JTojefhKv61n/view?usp=sharing)
+
 # eKYC & eKYB Platform
 
 ![Go 1.24](https://img.shields.io/badge/Go-1.24-00ADD8?style=flat&logo=go) ![React 18](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-4169E1?style=flat&logo=postgresql) ![Redis](https://img.shields.io/badge/Redis-7-DC382D?style=flat&logo=redis) ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat&logo=docker)
