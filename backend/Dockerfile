@@ -1,0 +1,22 @@
+# Stage 1: Builder
+FROM golang:1.25-alpine AS builder
+WORKDIR /app
+COPY go.mod go.sum ./
+RUN go mod download
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -o server ./cmd/server
+
+# Stage 2: Runtime
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates wget curl
+RUN wget -qO- https://github.com/golang-migrate/migrate/releases/download/v4.17.0/migrate.linux-amd64.tar.gz \
+    | tar xvz -C /tmp \
+    && mv /tmp/migrate /usr/local/bin/migrate \
+    && chmod +x /usr/local/bin/migrate
+WORKDIR /app
+COPY --from=builder /app/server ./server
+COPY --from=builder /app/migrations ./migrations
+COPY entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+EXPOSE 8080
+ENTRYPOINT ["./entrypoint.sh"]

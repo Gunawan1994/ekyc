@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS customers;
+DROP TYPE IF EXISTS id_type;
